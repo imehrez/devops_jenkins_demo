@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo echo "performing health check"
+echo "performing health check"

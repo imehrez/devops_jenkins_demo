@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo echo "testing deployment"
+echo "testing deployment"
