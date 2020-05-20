@@ -25,8 +25,6 @@ pipeline {
     post {
         always {
             echo 'This will always run'
-            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-            junit 'build/reports/**/*.xml'
             deleteDir() /* clean up our workspace */
         }
         success {
