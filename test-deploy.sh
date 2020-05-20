@@ -1,1 +1,1 @@
-echo "testing deployment"
+sudo echo "testing deployment"

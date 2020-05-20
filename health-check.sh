@@ -1,1 +1,1 @@
-echo "performing health check"
+sudo echo "performing health check"
