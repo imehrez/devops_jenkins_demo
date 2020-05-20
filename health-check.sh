@@ -1,0 +1,1 @@
+echo "performing health check"
