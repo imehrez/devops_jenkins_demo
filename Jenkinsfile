@@ -7,20 +7,33 @@ pipeline {
     }
 
     stages {
-        stage('no-op') {
+        stage('Build') {
             steps {
                 retry(3) {
-                    sh './test-deploy.sh'
+                    sh './build.sh'
                 }
 
                 echo "Database engine is ${DB_ENGINE}"
                 echo "DISABLE_AUTH is ${DISABLE_AUTH}"
 
+            }
+        }
+
+        stage('Test') {
+            steps {
                 timeout(time: 3, unit: 'MINUTES') {
-                    sh './health-check.sh'
+                    sh './test.sh'
                 }
             }
         }
+
+        stage('Deploy') {
+            steps {
+                retry(3) {
+                    sh './deploy.sh'
+                }
+            }
+        
     }
     post {
         always {
